@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{%block title%}
+  KKK
+{%endblock%}
+
+{%block content%}
+  <h1> KKK</h1>
+  <p>we're coming for you</p>
+  {%if man%}
+    {% for i in man%}
+      <div class="alert alert-warning mt-2"
+        <h3>{{i.title}}</h3>
+        <p>{{i.Name_from_list}}</p>
+      </div>
+    {%endfor%}
+  {%else%}
+    <p>Зачитили всех!</p>
+  {%endif%}
+{%endblock%}
+
