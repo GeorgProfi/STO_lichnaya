@@ -1,16 +1,20 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from .models import list_of_executed
 from .forms import ListForm
+
+
 # Create your views here.
 
 
 def index(request):
     buy = list_of_executed.objects.all()
-    return render(request, 'main/index.html',{'buy':buy})
+    return render(request, 'main/index.html', {'buy': buy})
+
 
 def about(request):
     man = list_of_executed.objects.all()
-    return render(request,'main/about.html', {'man': man})
+    return render(request, 'main/about.html', {'man': man})
+
 
 def list_E(request):
     if request.method == 'POST':
@@ -22,6 +26,6 @@ def list_E(request):
             error = 'форма не верна'
     form = ListForm()
     context = {
-        'form':form
+        'form': form
     }
     return render(request, 'main/list_E.html', context)
