@@ -7,9 +7,13 @@ from .forms import ListForm
 
 
 def index(request):
+
+    if request.method == 'POST':
+        if 'buy_btn' in request.POST:
+            deleted_instance = list_of_executed.objects.filter(id=request.POST.get('buy_btn'))
+            deleted_instance.delete()
     buy = list_of_executed.objects.all()
     return render(request, 'main/index.html', {'buy': buy})
-
 
 def about(request):
     man = list_of_executed.objects.all()
